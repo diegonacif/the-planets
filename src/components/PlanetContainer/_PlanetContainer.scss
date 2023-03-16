@@ -1,0 +1,12 @@
+.planet-container {
+  position: relative;
+  color: white;
+  z-index: 2;
+  font-family: sans-serif;
+
+  .image-wrapper {
+    img {
+      width: 20rem;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 export const Header = () => {
   return (
     <div className="header-container">
-      <h1>The Planets</h1>
+      <h1>THE PLANETS</h1>
       <div className="header-list">
         <span>Mercúrio</span>
         <span>Vênus</span>

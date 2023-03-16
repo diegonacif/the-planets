@@ -1,3 +1,12 @@
+// Fonts
+@font-face {
+  font-family: "Elianto-Regular";
+  src: url("./assets/fonts/Elianto/Elianto-Regular.ttf");
+}
+
+$font-title: "Elianto-Regular", sans-serif;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -16,3 +25,4 @@
 
 @import './components/BgVideo/BgVideo';
 @import './components/Header/Header';
+@import './components/PlanetContainer/PlanetContainer';
