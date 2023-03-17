@@ -14,5 +14,23 @@
   .header-list {
     display: flex;
     gap: 0.75rem;
+
+    span {
+      position: relative;
+      cursor: pointer;
+
+      &.selected {
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -0.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 2.5rem;
+          height: 2px;
+          background-color: rgba(0, 0, 255, 0.9);
+        }
+      }
+    }
   }
 }

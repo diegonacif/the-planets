@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import planetImg from '../../assets/earth.png';
 import '../../App.scss';
-import { FC } from 'react';
 
 interface IPlanetData {
     planet: string;
@@ -14,7 +14,6 @@ interface IPlanetData {
 }
 
 export const PlanetContainer:FC<IPlanetData> = (planet) => {
-  // console.log(planet.planet);
   return (
     <div className="planet-container">
       <section className="image-wrapper">
