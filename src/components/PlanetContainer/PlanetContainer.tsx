@@ -1,15 +1,28 @@
 import planetImg from '../../assets/earth.png';
 import '../../App.scss';
+import { FC } from 'react';
 
-export const PlanetContainer = () => {
+interface IPlanetData {
+    planet: string;
+    resume: string;
+    internalStructure: string;
+    surfaceGeology: string;
+    rotationTime: number;
+    revolutionTime: number;
+    radius: number;
+    averageTemp: number
+}
+
+export const PlanetContainer:FC<IPlanetData> = (planet) => {
+  // console.log(planet.planet);
   return (
     <div className="planet-container">
       <section className="image-wrapper">
         <img src={planetImg} alt="" />
       </section>
       <section className="main-wrapper">
-        <h1>TERRA</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et amet dolor voluptates alias! Suscipit, culpa eum! Autem repellat consequuntur veritatis vero temporibus quo animi, sed nemo dolorum error possimus saepe!</p>
+        <h1>{planet.planet}</h1>
+        <p>{planet.resume}</p>
         <span>Fonte: Wikipedia</span>
         <div className="inner-content-links">
           <div className="inner-link selected">
@@ -29,19 +42,19 @@ export const PlanetContainer = () => {
       <section className="info-cards-wrapper">
         <div className="info-card">
           <h5>TEMPO DE ROTAÇÃO</h5>
-          <span>0.99 dias</span>
+          <span>{planet.rotationTime} dias</span>
         </div>
         <div className="info-card">
           <h5>TEMPO DE TRANSLAÇÃO</h5>
-          <span>365.26 dias</span>
+          <span>{planet.revolutionTime} dias</span>
         </div>
         <div className="info-card">
           <h5>RAIO</h5>
-          <span>6371 KM</span>
+          <span>{planet.radius} KM</span>
         </div>
         <div className="info-card">
           <h5>TEMPERATURA MÉDIA</h5>
-          <span>16ºC</span>
+          <span>{planet.averageTemp}ºC</span>
         </div>
       </section>
     </div>
