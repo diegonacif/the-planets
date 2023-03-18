@@ -1,5 +1,10 @@
-import { FC } from 'react';
-import planetImg from '../../assets/earth.png';
+import { FC, useEffect, useState } from 'react';
+import mercuryImg from '../../assets/mercury.png';
+import venusImg from '../../assets/venus.png';
+import earthImg from '../../assets/earth.png';
+import marsImg from '../../assets/mars.png';
+import jupiterImg from '../../assets/jupiter.png';
+import saturnImg from '../../assets/saturn.png';
 import '../../App.scss';
 
 interface IPlanetData {
@@ -13,11 +18,32 @@ interface IPlanetData {
     averageTemp: number
 }
 
+
 export const PlanetContainer:FC<IPlanetData> = (planet) => {
+  
+  
+
   return (
     <div className="planet-container">
       <section className="image-wrapper">
-        <img src={planetImg} alt="" />
+        <img 
+          src={
+            planet.planet === "Mercúrio" ?
+            mercuryImg :
+            planet.planet === "Vênus" ?
+            venusImg :
+            planet.planet === "Terra" ?
+            earthImg :
+            planet.planet === "Marte" ?
+            marsImg :
+            planet.planet === "Júpiter" ?
+            jupiterImg :
+            planet.planet === "Saturno" ?
+            saturnImg :
+            ""
+          } 
+          alt="" 
+        />
       </section>
       <section className="main-wrapper">
         <h1>{planet.planet}</h1>
