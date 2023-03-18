@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, SetStateAction, useEffect, useState } from 'react';
 import mercuryImg from '../../assets/mercury.png';
 import venusImg from '../../assets/venus.png';
 import earthImg from '../../assets/earth.png';
@@ -19,12 +19,12 @@ interface IPlanetData {
     revolutionTime: number;
     radius: number;
     averageTemp: number
+    currentMenu: string ;
+    setCurrentMenu: React.Dispatch<SetStateAction<string>>;
 }
 
 
 export const PlanetContainer:FC<IPlanetData> = (planet) => {
-  
-  
 
   return (
     <div className="planet-container">
@@ -56,18 +56,37 @@ export const PlanetContainer:FC<IPlanetData> = (planet) => {
       </section>
       <section className="main-wrapper">
         <h1>{planet.planet}</h1>
-        <p>{planet.resume}</p>
+        <p>
+          {
+          planet.currentMenu === 'general' ?
+          planet.resume :
+          planet.currentMenu === 'internalStructure' ?
+          planet.internalStructure :
+          planet.currentMenu === 'surface' ?
+          planet.surfaceGeology :
+          'menu not found'
+          }
+        </p>
         <span>Fonte: Wikipedia</span>
         <div className="inner-content-links">
-          <div className="inner-link selected">
+          <div 
+            className={`inner-link ${planet.currentMenu === 'general' && 'selected'}`} 
+            onClick={() => planet.setCurrentMenu('general')}
+          >
             <span>01</span>
             <h4>Visão Geral</h4>
           </div>
-          <div className="inner-link">
+          <div 
+            className={`inner-link ${planet.currentMenu === 'internalStructure' && 'selected'}`} 
+            onClick={() => planet.setCurrentMenu('internalStructure')}
+          >
             <span>02</span>
             <h4>Estrutura Interna</h4>
           </div>
-          <div className="inner-link">
+          <div 
+            className={`inner-link ${planet.currentMenu === 'surface' && 'selected'}`} 
+            onClick={() => planet.setCurrentMenu('surface')}
+          >
             <span>03</span>
             <h4>Superfície</h4>
           </div>
