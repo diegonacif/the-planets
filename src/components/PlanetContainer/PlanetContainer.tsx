@@ -18,11 +18,10 @@ interface IPlanetData {
     rotationTime: number;
     revolutionTime: number;
     radius: number;
-    averageTemp: number
-    currentMenu: string ;
+    averageTemp: number;
+    currentMenu: string;
     setCurrentMenu: React.Dispatch<SetStateAction<string>>;
 }
-
 
 export const PlanetContainer:FC<IPlanetData> = (planet) => {
 

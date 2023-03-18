@@ -1,4 +1,6 @@
 import { FC, SetStateAction } from "react"
+import { Planet } from "@phosphor-icons/react";
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 interface IHeaderProps {
   currentPlanet: number ;
@@ -6,11 +8,13 @@ interface IHeaderProps {
 }
 
 export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => {
+  console.log(useWindowSize());
   
   return (
     <div className="header-container">
       <h1>THE PLANETS</h1>
       <div className="header-list">
+        <Planet size={36} weight="fill" />
         <span 
           className={currentPlanet === 0 ? "selected" : ""} 
           onClick={() => setCurrentPlanet(0)}
