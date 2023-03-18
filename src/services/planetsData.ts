@@ -1,17 +1,3 @@
-interface IPlanetData {
-  [index: number]:
-  {
-    planet: string,
-    resume: string,
-    internalStructure: string,
-    surfaceGeology: string,
-    rotationTime: number,
-    revolutionTime: number,
-    radius: number,
-    averageTemp: number
-  }
-}
-
 export const planetsData = [
   {
     planet: "Mercúrio",

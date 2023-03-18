@@ -5,6 +5,9 @@ import earthImg from '../../assets/earth.png';
 import marsImg from '../../assets/mars.png';
 import jupiterImg from '../../assets/jupiter.png';
 import saturnImg from '../../assets/saturn.png';
+import uranusImg from '../../assets/uranus.png';
+import neptuneImg from '../../assets/neptune.png';
+import plutoImg from '../../assets/pluto.png';
 import '../../App.scss';
 
 interface IPlanetData {
@@ -40,6 +43,12 @@ export const PlanetContainer:FC<IPlanetData> = (planet) => {
             jupiterImg :
             planet.planet === "Saturno" ?
             saturnImg :
+            planet.planet === "Urano" ?
+            uranusImg :
+            planet.planet === "Netuno" ?
+            neptuneImg :
+            planet.planet === "Plutão" ?
+            plutoImg :
             ""
           } 
           alt="" 
