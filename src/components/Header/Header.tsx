@@ -27,8 +27,6 @@ export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => 
 
   useOnClickOutside(refContainer, handleClickOutside)
 
-  console.log(isMenuOpen);
-  
   return (
     <div className="header-container" ref={refContainer}>
       <h1>THE PLANETS</h1>

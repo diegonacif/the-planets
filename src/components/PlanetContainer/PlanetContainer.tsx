@@ -8,7 +8,9 @@ import saturnImg from '../../assets/saturn.png';
 import uranusImg from '../../assets/uranus.png';
 import neptuneImg from '../../assets/neptune.png';
 import plutoImg from '../../assets/pluto.png';
+import { useWindowSize } from '../../hooks/useWindowSize';
 import '../../App.scss';
+import { Gear, Globe, Mountains } from '@phosphor-icons/react';
 
 interface IPlanetData {
     planet: string;
@@ -24,6 +26,8 @@ interface IPlanetData {
 }
 
 export const PlanetContainer:FC<IPlanetData> = (planet) => {
+  const windowSize = useWindowSize();
+  console.log(windowSize);
 
   return (
     <div className="planet-container">
@@ -55,7 +59,35 @@ export const PlanetContainer:FC<IPlanetData> = (planet) => {
       </section>
       <section className="main-wrapper">
         <div className="inner-content-text">
-          <h1>{planet.planet}</h1>
+          <div className="inner-content-title">
+            <h1>{planet.planet}</h1>
+            {
+              windowSize.width <= 850 &&
+              <div className="inner-content-small-links">
+                <div 
+                  className={`inner-small-link ${planet.currentMenu === 'general' && 'selected'}`} 
+                  onClick={() => planet.setCurrentMenu('general')}
+                >
+                  <Globe size={36} weight="duotone" />
+                  {/* <h4>Visão Geral</h4> */}
+                </div>
+                <div 
+                  className={`inner-small-link ${planet.currentMenu === 'internalStructure' && 'selected'}`} 
+                  onClick={() => planet.setCurrentMenu('internalStructure')}
+                >
+                  <Gear size={36} weight="duotone" />
+                  {/* <h4>Estrutura Interna</h4> */}
+                </div>
+                <div 
+                  className={`inner-small-link ${planet.currentMenu === 'surface' && 'selected'}`} 
+                  onClick={() => planet.setCurrentMenu('surface')}
+                >
+                  <Mountains size={36} weight="duotone" />
+                  {/* <h4>Superfície</h4> */}
+                </div>
+              </div>
+            }
+          </div>
           <p>
             {
             planet.currentMenu === 'general' ?
@@ -69,29 +101,32 @@ export const PlanetContainer:FC<IPlanetData> = (planet) => {
           </p>
           <span>Fonte: Wikipedia</span>
         </div>
-        <div className="inner-content-links">
-          <div 
-            className={`inner-link ${planet.currentMenu === 'general' && 'selected'}`} 
-            onClick={() => planet.setCurrentMenu('general')}
-          >
-            <span>01</span>
-            <h4>Visão Geral</h4>
+        {
+          windowSize.width > 850 &&
+          <div className="inner-content-links">
+            <div 
+              className={`inner-link ${planet.currentMenu === 'general' && 'selected'}`} 
+              onClick={() => planet.setCurrentMenu('general')}
+            >
+              <span>01</span>
+              <h4>Visão Geral</h4>
+            </div>
+            <div 
+              className={`inner-link ${planet.currentMenu === 'internalStructure' && 'selected'}`} 
+              onClick={() => planet.setCurrentMenu('internalStructure')}
+            >
+              <span>02</span>
+              <h4>Estrutura Interna</h4>
+            </div>
+            <div 
+              className={`inner-link ${planet.currentMenu === 'surface' && 'selected'}`} 
+              onClick={() => planet.setCurrentMenu('surface')}
+            >
+              <span>03</span>
+              <h4>Superfície</h4>
+            </div>
           </div>
-          <div 
-            className={`inner-link ${planet.currentMenu === 'internalStructure' && 'selected'}`} 
-            onClick={() => planet.setCurrentMenu('internalStructure')}
-          >
-            <span>02</span>
-            <h4>Estrutura Interna</h4>
-          </div>
-          <div 
-            className={`inner-link ${planet.currentMenu === 'surface' && 'selected'}`} 
-            onClick={() => planet.setCurrentMenu('surface')}
-          >
-            <span>03</span>
-            <h4>Superfície</h4>
-          </div>
-        </div>
+        }
       </section>
       <section className="info-cards-wrapper">
         <div className="info-card">
