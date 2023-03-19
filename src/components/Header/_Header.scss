@@ -32,7 +32,52 @@
           transform: translateX(-50%);
           width: 2.5rem;
           height: 2px;
-          background-color: rgba(0, 0, 255, 0.9);
+        }
+        
+        &.mercury-selected {
+          &::after {
+            background-color: #AA6529;
+          }
+        };
+        &.venus-selected {
+          &::after {
+            background-color: #C97D3F;
+          }
+        }
+        &.earth-selected {
+          &::after {
+            background-color: #0582C6;
+          }
+        }
+        &.mars-selected {
+          &::after {
+            background-color: #BB2317;
+          }
+        }
+        &.jupiter-selected {
+          &::after {
+            background-color: #947141;
+          }
+        }
+        &.saturn-selected {
+          &::after {
+            background-color: #B65546;
+          }
+        }
+        &.uranus-selected {
+          &::after {
+            background-color: #097492;
+          }
+        }
+        &.neptune-selected {
+          &::after {
+            background-color: #4BB6FB;
+          }
+        }
+        &.pluto-selected {
+          &::after {
+            background-color: #c94c41;
+          }
         }
       }
     }
@@ -51,11 +96,16 @@
 
   @media only screen and ($desktop-size) {
     padding: 1rem 6rem;
+
   }
   @media only screen and ($notebook-size) {
     padding: 1rem 4rem;
   }
   @media only screen and ($tablet-size) {
     padding: 1rem 0.75rem;
+
+    .header-menu-wrapper {
+      right: 1rem;
+    }
   }
 }
