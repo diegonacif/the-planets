@@ -4,7 +4,6 @@ import { Header } from './components/Header/Header';
 import { PlanetContainer } from './components/PlanetContainer/PlanetContainer';
 import { planetsData } from './services/planetsData';
 import './App.scss'
-import { HeaderMenu } from './components/HeaderMenu/HeaderMenu';
 
 export const App = () => {
   const [currentPlanet, setCurrentPlanet] = useState<number>(2);
@@ -16,12 +15,9 @@ export const App = () => {
       <BgVideo />
       <Header 
         currentPlanet={currentPlanet} 
-        setCurrentPlanet={setCurrentPlanet} 
+        setCurrentPlanet={setCurrentPlanet}
       />
-      <HeaderMenu
-        currentPlanet={currentPlanet} 
-        setCurrentPlanet={setCurrentPlanet} 
-      />
+      
       <PlanetContainer 
         {...planet} 
         currentMenu={currentMenu}

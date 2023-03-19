@@ -1,6 +1,8 @@
-import { FC, SetStateAction } from "react"
-import { Planet } from "@phosphor-icons/react";
+import { FC, SetStateAction, useRef, useState } from "react"
+import { GlobeHemisphereWest, Planet } from "@phosphor-icons/react";
 import { useWindowSize } from '../../hooks/useWindowSize';
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import { HeaderMenu } from "../HeaderMenu/HeaderMenu";
 
 interface IHeaderProps {
   currentPlanet: number ;
@@ -9,6 +11,23 @@ interface IHeaderProps {
 
 export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => {
   const windowSize = useWindowSize();
+
+  // Is Menu Open
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+  // Outside Click (Variable)
+  const refContainer = useRef(null);
+
+  const handleClickOutside = () => {
+    setIsMenuOpen(false);
+  }
+
+  useOnClickOutside(refContainer, handleClickOutside)
+
+  console.log(isMenuOpen);
   
   return (
     <div className="header-container">
@@ -16,7 +35,7 @@ export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => 
       <div className="header-list">
         {
           windowSize.width < 950 ?
-          <Planet size={38} weight="fill" id="planet-icon" /> :
+          <GlobeHemisphereWest size={46} weight="duotone" id="planet-icon" onClick={() => handleMenuOpen()} /> :
           <>
             <span 
               className={currentPlanet === 0 ? "selected" : ""} 
@@ -75,6 +94,15 @@ export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => 
           </>
         }
       </div>
+      {
+        isMenuOpen &&
+        <div className="header-menu-wrapper" ref={refContainer}>
+          <HeaderMenu
+            currentPlanet={currentPlanet} 
+            setCurrentPlanet={setCurrentPlanet} 
+          />
+        </div>
+      }
     </div>
   )
 }

@@ -1,0 +1,53 @@
+.header-menu-container {
+  .header-list {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+
+    .header-list-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    svg {
+      &.mercury-selected {
+        color: #AA6529;
+      }
+      &.venus-selected {
+        color: #C97D3F;
+      }
+      &.earth-selected {
+        color: #0582C6;
+      }
+      &.mars-selected {
+        color: #BB2317;
+      }
+      &.jupiter-selected {
+        color: #947141;
+      }
+      &.saturn-selected {
+        color: #B65546;
+      }
+      &.uranus-selected {
+        color: #097492;
+      }
+      &.neptune-selected {
+        color: #4BB6FB;
+      }
+      &.pluto-selected {
+        color: #c94c41;
+      }
+    }
+
+    span {
+      &.selected {
+        &::after {
+          display: none;
+        }
+      }
+    }
+    
+  }
+}
