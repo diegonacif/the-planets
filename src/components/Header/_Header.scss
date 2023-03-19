@@ -11,6 +11,10 @@
   font-family: $font-title;
   z-index: 2;
 
+  #planet-icon {
+    cursor: pointer;
+  }
+
   .header-list {
     display: flex;
     gap: 0.75rem;
