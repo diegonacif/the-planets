@@ -22,7 +22,7 @@ export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => 
   const refContainer = useRef(null);
 
   const handleClickOutside = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(false);
   }
 
   useOnClickOutside(refContainer, handleClickOutside)
@@ -34,7 +34,7 @@ export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => 
       <h1>THE PLANETS</h1>
       <div className="header-list" >
         {
-          windowSize.width < 950 ?
+          windowSize.width < 1024 ?
           <GlobeHemisphereWest size={40} weight="duotone" id="planet-icon" onClick={() => handleMenuOpen()} /> :
           <>
             <span 
@@ -95,7 +95,7 @@ export const Header:FC<IHeaderProps> = ({ currentPlanet, setCurrentPlanet }) => 
         }
       </div>
       {
-        isMenuOpen && windowSize.width < 950 &&
+        isMenuOpen && windowSize.width < 1024 &&
         <div className="header-menu-wrapper">
           <HeaderMenu
             currentPlanet={currentPlanet} 

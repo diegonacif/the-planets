@@ -1,5 +1,6 @@
 .header-container {
-  @include responsive-padding(1rem, 1rem);
+  // @include responsive-padding(1rem, 1rem);
+  padding: 1rem calc(8rem + 5vw);
   position: relative;
   display: flex;
   align-items: center;
@@ -46,5 +47,15 @@
     border-radius: 8px;
     outline: 1px solid rgba(255, 255, 255, 0.8);
     background-color:rgb(26, 26, 26);
+  }
+
+  @media only screen and ($desktop-size) {
+    padding: 1rem 6rem;
+  }
+  @media only screen and ($notebook-size) {
+    padding: 1rem 4rem;
+  }
+  @media only screen and ($tablet-size) {
+    padding: 1rem 0.75rem;
   }
 }

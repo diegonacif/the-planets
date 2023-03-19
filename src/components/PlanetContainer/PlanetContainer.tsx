@@ -54,19 +54,21 @@ export const PlanetContainer:FC<IPlanetData> = (planet) => {
         />
       </section>
       <section className="main-wrapper">
-        <h1>{planet.planet}</h1>
-        <p>
-          {
-          planet.currentMenu === 'general' ?
-          planet.resume :
-          planet.currentMenu === 'internalStructure' ?
-          planet.internalStructure :
-          planet.currentMenu === 'surface' ?
-          planet.surfaceGeology :
-          'menu not found'
-          }
-        </p>
-        <span>Fonte: Wikipedia</span>
+        <div className="inner-content-text">
+          <h1>{planet.planet}</h1>
+          <p>
+            {
+            planet.currentMenu === 'general' ?
+            planet.resume :
+            planet.currentMenu === 'internalStructure' ?
+            planet.internalStructure :
+            planet.currentMenu === 'surface' ?
+            planet.surfaceGeology :
+            'menu not found'
+            }
+          </p>
+          <span>Fonte: Wikipedia</span>
+        </div>
         <div className="inner-content-links">
           <div 
             className={`inner-link ${planet.currentMenu === 'general' && 'selected'}`} 

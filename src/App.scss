@@ -1,9 +1,9 @@
 // Media Variables
-$mobile-size: "min-width: 320px";
-$tablet-size: "min-width: 600px";
-$notebook-small-size: "min-width: 950px";
-$notebook-size: "min-width: 1024px";
-$desktop-size: "min-width: 1280px";
+$mobile-size: "max-width: 320px";
+$tablet-size: "max-width: 600px";
+$notebook-small-size: "max-width: 850px";
+$notebook-size: "max-width: 1024px";
+$desktop-size: "max-width: 1280px";
 
 @mixin responsive-padding($pt: 0, $pb: 0) {
   padding: $pt 1rem $pb;
